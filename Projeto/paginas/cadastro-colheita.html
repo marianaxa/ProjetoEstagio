@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Lasfac</title>
+
+  <!-- a parte da barra-->
+  <div style="padding:20px">
+
+</head>
+
+<body>
+  <h1>LASFAC</h1>
+
+  <div justify-content="left">
+    <nav>
+      <a href="principal.html">Inicio</a> |
+      <a href="#">Amostras</a> |
+      <a href="#">Analises</a> |
+      <a href="#">Relatorios</a> |
+      <a href="#">Documentos</a> |
+      <a href="#">Sair</a>
+    </nav>
+
+  </div>
+
+</div>
+  <!-- a parte do formulario -->
+  <div  style="padding:20px">
+    <form  method="post">
+      <!--Aqui é como uma cabecalho q se repete para todas as informações sobre a arvore-->
+      Especie: <input type="text" name="especie"> <button>buscar</button>
+      <!-- quando clicar no buscar mostra uma lista, ou é melhor o auto complete ?-->
+      <br>
+      <br>
+      Quantidade: <input type="text" name="quantidade">
+      <br>
+      <br>
+      Data: <input type="date" name="data">
+      <br>
+      <br>
+      Local de colheita:  <textarea ></textarea>
+      <br>
+      <br>
+      Colhedores:  <textarea ></textarea>
+      <br>
+      <!--fim do cabeçalho--->
+      <!-- A partir de agora esses dados dependem da quantidade de arvores que foram colhidas as semestes
+            talvez fazer essa parte separada (pensar)-->
+      Material colhido: <br>
+      <input type="radio" name="materialColhido" value="frutoImaturo" > Futros Imaturos<br>
+      <input type="radio" name="materialColhido" value="futroMaduro" > Futros Maduros<br>
+      <input type="radio" name="materialColhido" value="semetes" > Sementes<br>
+      <br>
+      <br>
+      Dados da Arvore Matriz:
+      <br>
+      Altura total: <input type="text" name="alturaTotal">
+      <br>
+      <br>
+      Altura comercial: <input type="text" name="alturaComercial">
+      <br>
+      <br>
+      DAP: <input type="text" name="dap">
+      <br>
+      <br>
+      CAP: <input type="text" name="cap">
+      <br>
+      <br>
+      Localização: GPS: X: <input type="text" name="gpsX"> Y: <input type="text" name="gpsY">
+      <br>
+      <br>
+      Tipo de colheita:<br>
+      <input type="radio" name="tipoColheita" value="noChao" >No chão<br>
+      <input type="radio" name="tipoColheita" value="naArvore" >Na árvore<br>
+      <input type="radio" name="tipoColheita" value="outros" > Outros......<br>
+      <!--sobre esse outro sera q tem como pegar q tipo se apessao digitar o q ta ali ir bem o q foi
+      digitado ? no caso ai é um radio button ai clicou ali, aber espaco pra pessoa digitar...-->
+
+      <br>
+      Tipo de solo:<br>
+      <input type="radio" name="tipoColheita" value="arenoso" >Arenoso<br>
+      <input type="radio" name="tipoSolo" value="argiloso" >Argiloso<br>
+      <input type="radio" name="tipoSolo" value="aareno-argiloso" >Areno-argiloso<br>
+      <input type="radio" name="tipoSolo" value="outros" > Outros......<br>
+      <br>
+      Tipo de terreno:<br>
+      <input type="radio" name="tipoTerreno" value="ondulado" >Arenoso<br>
+      <input type="radio" name="tipoTerreno" value="suave-ondulado" >Argiloso<br>
+      <input type="radio" name="tipoTerreno" value="plano" >Areno-argiloso<br>
+      <input type="radio" name="tipoTerreno" value="outros" > Outros......<br>
+      <br>
+      Localização:<br>
+      <input type="radio" name="localizacao" value="terraFirme">Terra Firme<br>
+      <input type="radio" name="localizacao" value="varzea" >Várzea<br>
+      <input type="radio" name="localizacao" value="outros" > Outros......<br>
+      <br>
+      Tipo de vegetação:<br>
+      <input type="radio" name="tipoVegetacao" value="florestaPrimaria">Terra Firme<br>
+      <input type="radio" name="tipoVegetacao" value="capoeira" >Várzea<br>
+      <input type="radio" name="tipoVegetacao" value="plantacao" >Várzea<br>
+      <input type="radio" name="tipoVegetacao" value="outros" > Outros......<br>
+      <br>
+      <br>
+      Arvores vizinhas:  <textarea ></textarea>
+      <br>
+      <br>
+      Observação: <textarea ></textarea>
+      <br>
+      <br>
+      <button type="submit" value="Submit" >Confirmar</button>
+    </form>
+  </div>
+
+</body>
+
+</html>

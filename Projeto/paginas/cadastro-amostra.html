@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8"><!--pesquisar sobre-->
+  <title>Sistema Lasfac</title>
+
+  <!-- a parte da barra-->
+  <div style="padding:20px">
+
+  </head>
+
+  <body>
+    <div>
+      <header>
+        <h1>LASFAC</h1>
+        <div justify-content="left">
+          <nav>
+            <a href="principal.html">Inicio</a> |
+            <a href="#">Amostras</a> |
+            <a href="#">Analises</a> |
+            <a href="#">Relatorios</a> |
+            <a href="#">Documentos</a> |
+            <a href="#">Sair</a>
+          </nav>
+        </div>
+      </header>
+      <section>
+        <!-- a parte do formulario -->
+        <div  style="padding:20px">
+          <fieldset>
+            <legend>Cadastro de Amostra</legend>
+            <form  method="post">
+              Lote de Origem:  <input type="text" name="idLote"> <button>buscar</button>
+              <br>
+              <br>
+              <!--Talvez aqui venha alguma informacao do lote tbm, tipo se foi colhido ou fornecido-->
+              <!--Essas informacoes é ideal que sejam capturasdas quadno se esoclher o lote de origem-->
+              Especie:<input type="text" name="especie">
+              Nome Cientifico: <input type="text" name="nomeCientifico">
+              Familia:<input type="text" name="familia">
+              <br>
+              <br>
+              Condição de Armazenamento:<input type="text" name="condicaoArmazenamento">
+              <br>
+              <br>
+              Data Implantação:  <input type="date" name="dataImplantacao">
+              <br>
+              <br>
+              <button type="submit" value="Submit" >Confirmar</button>
+            </form>
+          </fieldset>
+        </div>
+      </section>
+      <footer>
+      </footer>
+    </div>
+  </body>
+
+  </html>

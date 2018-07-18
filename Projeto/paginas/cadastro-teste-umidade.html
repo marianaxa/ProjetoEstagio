@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Lasfac</title>
+
+
+</head>
+
+<body>
+  <!-- a parte da barra-->
+  <div style="padding:20px">
+    <h1>LASFAC</h1>
+
+    <div justify-content="left">
+      <nav>
+        <a href="principal.html">Inicio</a> |
+        <a href="#">Amostras</a> |
+        <a href="#">Analises</a> |
+        <a href="#">Relatorios</a> |
+        <a href="#">Documentos</a> |
+        <a href="#">Sair</a>
+      </nav>
+
+    </div>
+
+  </div>
+  <!-- a parte do formulario -->
+  <div  style="padding:20px">
+    <form  method="post">
+      <!--Essas informações talvez sejam cadastradas uma unica vez -->
+      Data:  <input type="date" name="dataTesteUmidade">
+      Analista: <input type="text" name="analistaTesteUmidade">
+      <br>
+      <br>
+      <!--Talvez esses dados fiquem em outro formulario -->
+      N° do Cadinho:  <input type="text" name="numCadinho">
+      <br>
+      <br>
+      Peso do Cadinho:<input type="text" name="pesoCadinho">
+      <br>
+      <br>
+      Peso úmido: <input type="text" name="pesoUmido">
+      <br>
+      <br>
+      Peso Seco:<input type="text" name="pesoSeco">
+      <br>
+      <br>
+      Umidade (%):<input type="text" name="umidade">
+      <br>
+      <br>
+      Umidade Média (%):<input type="text" name="umidadeMedia">
+      <!--Fim dos dados-->
+      <br>
+      <br>
+      Observação: <textarea ></textarea>
+      <br>
+      <br>
+      <button type="submit" value="Submit" >Confirmar</button>
+    </form>
+  </div>
+
+</body>
+
+</html>

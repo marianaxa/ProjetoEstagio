@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Lasfac</title>
+
+
+</head>
+
+<body>
+  <!-- a parte da barra-->
+  <div style="padding:20px">
+    <h1>LASFAC</h1>
+
+    <div justify-content="left">
+      <nav>
+        <a href="principal.html">Inicio</a> |
+        <a href="#">Amostras</a> |
+        <a href="#">Analises</a> |
+        <a href="#">Relatorios</a> |
+        <a href="#">Documentos</a> |
+        <a href="#">Sair</a>
+      </nav>
+
+    </div>
+
+  </div>
+  <!-- a parte do formulario -->
+  <div  style="padding:20px">
+    <form  method="post">
+      <!--Essas informações talvez sejam cadastradas uma unica vez -->
+      Data:  <input type="date" name="dataTesteGerminacao">
+      Analista: <input type="text" name="analistaTesteGerminacao">
+      <br>
+      <br>
+      <!--Talvez esses dados fiquem em outro formulario -->
+      Data da semeadura:  <input type="text" name="dataSemeadura">
+      <br>
+      <br>
+      Temperatura:<input type="text" name="temperatura">
+      <br>
+      <br>
+      Substrato: <input type="text" name="substrato">
+      <br>
+      <br>
+      Num Sementes/Repetição:<input type="text" name="numSementesRepeticao">
+      <br>
+      <br>
+      Tratamento:<input type="text" name="tratamento">
+      <!--Fim dos dados-->
+      <br>
+      <br>
+      
+      Observação: <textarea></textarea>
+      <br>
+      <br>
+      <button type="submit" value="Submit" >Confirmar</button>
+    </form>
+  </div>
+
+</body>
+
+</html>

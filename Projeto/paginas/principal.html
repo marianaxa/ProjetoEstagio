@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Lasfac</title>
+
+
+</head>
+
+<body>
+  <!-- a parte da barra-->
+  <div style="padding:20px">
+    <h1>LASFAC</h1>
+
+    <div justify-content="left">
+      <nav>
+        <a href="principal.html">Inicio</a> |
+        <a href="#">Amostras</a> |
+        <a href="#">Analises</a> |
+        <a href="#">Relatorios</a> |
+        <a href="#">Documentos</a> |
+        <a href="#">Sair</a>
+      </nav>
+    </div>
+
+  </div>
+  <!-- a parte que ficaria a contagem de amostra, analise e relatorio-->
+  <div  style="padding:40px">
+    <table>
+      <tr><!-- linha-->
+        <th>QTD Amostras</th>
+        <th>QTD Analises</th><!-- coluna-->
+        <th>QTD Relatorios</th>
+      </tr>
+    </table>
+  </div>
+
+
+  <!-- a parte dos botoes -->
+  <div  style="padding:20px">
+    <table>
+      <tr><!-- linha-->
+        <th><button type="button" onClick=window.open("cadastro-lote.html")>Cadastrar Lote</button></th> <!-- Assim essa bagassa abre outra pagina, queria que fosse por cima da pg atual-->
+        <th><button>Lista de Lotes</button></th><!-- coluna-->
+        <th><button>Gerar Relatorios</button></th>
+      </tr>
+      <tr><!-- linha-->
+        <th><button>Iniciar Analise</button></th>
+        <th><button>Lista de Analises</button></th><!-- coluna-->
+        <th><button>Documentos</button></th>
+      </tr>
+    </table>
+  </div>
+
+</body>
+
+</html>

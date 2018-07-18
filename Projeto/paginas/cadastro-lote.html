@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Lasfac</title>
+
+
+</head>
+
+<body>
+  <!-- a parte da barra-->
+  <div style="padding:20px">
+    <h1>LASFAC</h1>
+
+    <div justify-content="left">
+      <nav>
+        <a href="principal.html">Inicio</a> |
+        <a href="#">Amostras</a> |
+        <a href="#">Analises</a> |
+        <a href="#">Relatorios</a> |
+        <a href="#">Documentos</a> |
+        <a href="#">Sair</a>
+      </nav>
+
+    </div>
+
+  </div>
+  <!-- a parte do formulario -->
+  <div  style="padding:20px">
+    <form  method="post">
+      Especie: <input type="text" name="especie"> <button>buscar</button>
+      <!-- quando clicar no buscar mostra uma lista, ou é melhor o auto complete ?-->
+      <br>
+      <br>
+      Quantidade: <input type="text" name="quantidade">
+      <br>
+      <br>
+      Data Chegada: <input type="date" name="data">
+      <br>
+      <br>
+      <!-- o lote tbm pode ser colhod pelo laboratorio, mas por enquanto vamos deixar so como se ele recebesse,
+            para caso de sementes colhidas é outra forma de cadastro, pq tem q colocar quantidade de arvora, e tem um cadastro,
+          para cada arvore
+      -->
+      Fornecedor: <input type="text" name="fornecedor">
+      <br>
+      <br>
+      N° Renasem: <input type="text" name="renasem">
+      <br>
+      <br>
+      Rua: <input type="text" name="renasem">
+      <br>
+      <br>
+      Bairro: <input type="text" name="bairro">
+      <br>
+      <br>
+      Cidade: <input type="text" name="cidade">
+      <br>
+      <br>
+      Estado:
+      <select>
+        <option value="AC">AC</option>
+        <option value="AL">AL</option>
+        <option value="AP">AP</option>
+        <option value="AM">AM</option>
+        <option value="BA">BA</option>
+        <option value="CE">CE</option>
+        <option value="DF">DF</option>
+        <option value="ES">ES</option>
+        <option value="GO">GO</option>
+        <option value="MA">MA</option>
+        <option value="MT">MT</option>
+        <option value="MS">MS</option>
+        <option value="MG">MG</option>
+        <option value="PA">PA</option>
+        <option value="PB">PB</option>
+        <option value="PR">PR</option>
+        <option value="PE">PE</option>
+        <option value="RJ">RJ</option>
+        <option value="PI">PI</option>
+        <option value="RN">RN</option>
+        <option value="RS">RS</option>
+        <option value="RO">RO</option>
+        <option value="SC">SC</option>
+        <option value="RR">RR</option>
+        <option value="SP">SP</option>
+        <option value="SE">SE</option>
+        <option value="TO">TO</option>
+      </select>
+      <br>
+      <br>
+      Observação: <textarea ></textarea>
+      <br>
+      <button type="submit" value="Submit" >Confirmar</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
