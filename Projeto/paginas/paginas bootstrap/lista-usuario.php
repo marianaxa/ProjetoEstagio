@@ -63,14 +63,14 @@
 									</ul>
 								</li>
 								<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Página 1</a></li>
-										<li><a href="#">Página 2</a></li>
-									</ul>
-								</li>
-							</ul>
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+											<li><a href="lista-documento.php">Lista de Documentos</a></li>
+										</ul>
+									</li>
+								</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
 						<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
@@ -82,15 +82,16 @@
 
 	<section>
 			<fieldset>
-					<button>Cadastrar</button>
-					<table>
+				<legend>Lista de Usuários</legend>
+				<!--	<button>Cadastrar</button>	-->
+					<table  class="table table-hover">
 						<thead>
 							<tr>
-								<th>Código</th>
-								<th>Nome</th>
-								<th>E-mail</th>
-								<th>Função</th>
-								<th>Opções</th>
+								<th scope="col">Código</th>
+								<th scope="col">Nome</th>
+								<th scope="col">E-mail</th>
+								<th scope="col">Função</th>
+								<th scope="col">Opções</th>
 								<th>
 								</tr>
 							</thead>
@@ -98,10 +99,10 @@
 								<!--Só um exemplo de conteudo-->
 								<tr>
 									<th>001</th>
-									<th>Mariana</th>
-									<th>mxa234@gmail.com</th>
-									<th>Administrador</th>
-									<th><button>Editar</button>|<button>Excluir</button></th>
+									<td>Mariana</td>
+									<td>mxa234@gmail.com</th>
+									<td>Administrador</td>
+									<td><button class="btn btn-primary">Editar</button>|<button class="btn btn-danger">Excluir</button></td>
 								</tr>
 							</tbody>
 						</table>

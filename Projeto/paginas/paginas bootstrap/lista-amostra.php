@@ -63,13 +63,13 @@
 									</ul>
 								</li>
 								<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Página 1</a></li>
-										<li><a href="#">Página 2</a></li>
-									</ul>
-								</li>
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+											<li><a href="lista-documento.php">Lista de Documentos</a></li>
+										</ul>
+									</li>
 							</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
@@ -82,34 +82,41 @@
 
 		<section>
 			<fieldset>
-				<div>
-					<button>Cadastrar</button>
-				</div>
-				<div>
-					<table>
+				<legend>Lista de Documento</legend>
+        		
+				<!--	<button>Cadastrar</button> -->
+					<table class="table table-bordered">
 						<thead>
 							<tr>
-								<th>Código</th>
-								<th>Espécie</th>
-								<th>Condição Armazenamento</th>
-								<th>Data Implantação</th>
-								<th>Categoria</th>
-								<th>Analises</th>
-								<th>Opções</th>
+								<th scope="col">Código</th>
+								<th scope="col">Espécie</th>
+								<th scope="col">Condição Armazenamento</th>
+								<th scope="col">Data Implantação</th>
+								<th scope="col">Categoria</th>
+								<th scope="col">Analises</th>
+								<th scope="col">Opções</th>
 							</tr>
 						</thead>
 						<tbody>
 							<!--Só um exemplo de conteudo-->
 							<tr>
-								<th>001</th>
-								<th>pupunha</th>
-								<th>Estufa</th>
-								<th>13/07/2018</th>
-								<th>fornecida</th>
-								<th><button>Umidade</button>|<button>Num. Sementes</button>|<button>Pureza</button>|<button>Germinação</button></th>
+								<td>001</td>
+								<td>pupunha</td>
+								<td>Estufa</td>
+								<td>13/07/2018</td>
+								<td>fornecida</td>
+								<td>
+									<a href="cadastro-teste-umidade.php"><button class="btn btn-info">Umidade</button></a>
+									<a href="cadastro-teste-num-sementes.php"><button class="btn btn-info">Num. Sementes</button></a>
+									<a href="#"><button class="btn btn-info">Pureza</button></a>
+									<a href="cadastro-teste-germinacao"><button class="btn btn-info">Germinação</button></a>
+								</td>
             					<!--Aqui fica mais simbolos dos testes,ou algo q fosse tipo, ao clicar vai pro cadastro do teste em questao,
             							e depois aki sinalizasse, o que ja foi "concluido" -->
-            					<th><button>Editar</button>|<button>Excluir</button></th>
+            					<td>
+            						<button class="btn btn-primary">Editar</button>
+            						<button class="btn btn-danger">Excluir</button>
+            					</td>
            					 </tr>
           						<!--a janela do editar é igual do formulario com os dados carregados, e a de excluir so abre um moral perguntando se realmente deseja excluir (ainda acho essa opçcao meio perigosa, mas deixa ai kkk)-->
           				<!--Fim do exemplo-->

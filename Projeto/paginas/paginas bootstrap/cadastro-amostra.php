@@ -63,14 +63,14 @@
 									</ul>
 								</li>
 								<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Página 1</a></li>
-										<li><a href="#">Página 2</a></li>
-									</ul>
-								</li>
-							</ul>
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+											<li><a href="lista-documento.php">Lista de Documentos</a></li>
+										</ul>
+									</li>
+								</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
 						<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
@@ -79,7 +79,7 @@
 			</div>
 		</nav>
 	</header>
-		<section>
+		<section  class="container-fluid">
 			<fieldset>
 				<legend>Cadastro de Amostras</legend>
 
@@ -90,17 +90,18 @@
 
 						<!--Primeira Linha-->
 						<div class="form-row">
-							<div class="form-group col-md-12 ">
+							<div class="form-group col-md-8 ">
 								<label for="loteOrigem">Lote de Origem:</label> 
-								<div class="form-row">
-									<div class="form-group col-md-10">
-										<input type="text" class="form-control" name="loteOrigem" id="loteOrigem" maxlength="5" minlength="1" placeholder="Ex.: " required="">
-									</div>
-									<div class="form-group col-md-2">
-										<button type="button" class="btn btn-primary">buscar</button>
-									</div>
-								</div>
+								<input type="text" class="form-control" name="loteOrigem" id="loteOrigem" maxlength="5" minlength="1" placeholder="Ex.: " required="">
 							</div>
+							<!--tAlvez aki entre o tipo do lote [colido ou fornecido]-->
+							<div class="form-group col-md-2 ">
+								<label for="dataEntradaLoteOrigem">Data de entrada:</label> 
+								<input type="date" class="form-control" name="dataEntradaLoteOrigem" id="dataEntradaLoteOrigem" maxlength="5" minlength="1" placeholder="Ex.: " required="">
+							</div>							
+							<div class="form-group col-md-2">
+								<button type="button" class="btn btn-primary">buscar</button>
+							</div>					
 						</div>
 						<!--Fim primeira linha-->
 						<!--Segunda linha-->
@@ -113,6 +114,7 @@
 								<label for="nomeCientifico">Nome Científico:</label>
 								<input type="text"  class="form-control"  name="nomeCientifico"  maxlength="30" minlength="1" id="nomeCientifico" required="">
 							</div>
+
 							<div class="form-group col-md-4">	
 								<label for="familia">Familia:</label>
 								<div class="form-row">
@@ -146,6 +148,7 @@
 					</div>
 					<div class="form-row">
 						<div class="form-group col-md-12">
+							<button type="submit" class="btn btn-primary">Voltar</button>
 							<button type="submit" class="btn btn-primary">Confirmar</button>
 						</div>
 					</div>

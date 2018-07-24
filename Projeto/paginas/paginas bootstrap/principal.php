@@ -63,13 +63,13 @@
 									</ul>
 								</li>
 								<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Página 1</a></li>
-										<li><a href="#">Página 2</a></li>
-									</ul>
-								</li>
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+											<li><a href="lista-documento.php">Lista de Documentos</a></li>
+										</ul>
+									</li>
 							</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
@@ -112,10 +112,10 @@
 		<!--Parte de baixo-->
 		<div class="row">
 			<div class="col-sm-4">
-				<a href="cadastro-lote.php"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-file-text"></i> <p>Cadastrar Lote</p> </button></a>
+				<a href="cadastro-lote.php"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-edit"></i> <p>Cadastrar Lote</p> </button></a>
 			</div>
 			<div class="col-sm-4">
-				<a href="lista-amostra.php"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-file-text"></i> <p>Lista de Lotes</p> </button></a>
+				<a href="lista-amostra.php"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-list"></i> <p>Lista de Lotes</p> </button></a>
 			</div>
 			<div class="col-sm-4">
 				<a href="#"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-file-text"></i> <p>Gerar Relatórios</p> </button></a>
@@ -124,13 +124,13 @@
 
 		<div class="row">
 			<div class="col-sm-4">
-				<a href="cadastro-amostra.php"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-file-text"></i> <p>Iniciar Análise</p> </button></a>
+				<a href="cadastro-amostra.php"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-book"></i> <p>Iniciar Análise</p> </button></a>
 			</div>
 			<div class="col-sm-4">
-				<a href="lista-amostra.php"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-file-text"></i> <p>Lista de Análises</p> </button></a>
+				<a href="lista-amostra.php"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-list"></i> <p>Lista de Análises</p> </button></a>
 			</div>
 			<div class="col-sm-4">
-				<a href="#"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-file-text"></i> <p>Documentos</p> </button></a>
+				<a href="#"><button class="btn btn-primary btn-sm" style="font-size:24px"><i class="fa fa-folder-open-o"></i> <p>Documentos</p> </button></a>
 			</div>					
 		</div>
 	</div>

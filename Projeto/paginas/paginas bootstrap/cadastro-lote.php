@@ -63,13 +63,13 @@
 									</ul>
 								</li>
 								<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Página 1</a></li>
-										<li><a href="#">Página 2</a></li>
-									</ul>
-								</li>
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+											<li><a href="lista-documento.php">Lista de Documentos</a></li>
+										</ul>
+									</li>
 							</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
@@ -79,52 +79,55 @@
 			</div>
 		</nav>
 	</header>
-		<section>
+		<section class="container-fluid">
 			<fieldset>
 				<legend>Cadastro Lote de Semente</legend>
 
 				<form name="formCardastroLoteSemente" id="formCardastroLoteSemente" method="get" action="#">
 
 
-					<div class="form-row">
-						<div class="form-group col-md-12 ">
-							<label for="especie">Especie:</label> 
-							<div class="form-row">
-								<div class="form-group col-md-6">
-									<input type="text" class="form-control" name="especie" id="especie"  maxlength="30" minlength="1" required=""> 
-								</div>
-								<div class="form-group col-md-1">
-									<button type="button" class="btn btn-primary">buscar</button>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label for="especie">Especie:</label>
+								<div class="input-group">
+									<input type="text" class="form-control" name="especie" id="especie"  maxlength="30" minlength="1" required="">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEspecies">Pesquisar</button>
+									</div>
+									<!-- quando clicar no buscar mostra uma lista, ou é melhor o auto complete ?-->
 								</div>
 							</div>
-							<!-- quando clicar no buscar mostra uma lista, ou é melhor o auto complete ?-->
-						</div>
+						</div>						
 					</div>
 
-					<div  class="form-row">
-						<div class="form-group col-md-3">
-							<label for="quantidadeLote">Quantidade de Lotes:</label>
-							<input type="text" class="form-control" name="quantidadeLote" id="quantidadeLote"  maxlength="5" minlength="1" required="">
+					<div  class="row">
+						<div class="form-group col-sm-2">
+							<label for="qtdLote">Quantidade de Lotes:</label>
+							<input type="number" class="form-control" name="qtdLote" id="qtdLote"  min="1" required="">
 						</div>
 
-						<div class="form-group col-md-3">
+						<div class="form-group col-sm-2">
 							<label for="dataChegada">Data Chegada:</label>
 							<input type="date" class="form-control" name="dataChegada" id="dataChegada" required="">
       				<!-- o lote tbm pode ser colhod pelo laboratorio, mas por enquanto vamos deixar so como se ele recebesse,
      		       	para caso de sementes colhidas é outra forma de cadastro, pq tem q colocar quantidade de arvora, e tem um cadastro,
      		       	para cada arvore -->
-     		       </div>		
+     		       		</div>
+
+     		       			
 					</div>
 
-							
-	<div class="form-group col-md-8">
-		<legend>Dados Fornecedor</legend>
-							<div class="form-group col-md-8">
+
+					<legend>Dados Fornecedor</legend>
+
+					<div class="row">
+						<div class="form-group col-sm-8">
 							<label for="fornecedor">Fornecedor:</label>
 							<input type="text" class="form-control" name="fornecedor" id="fornecedor"  maxlength="50" minlength="1" required="">
 
 						</div>
-
+					</div>
 <!--Talvez essas informações sejam irrelevantes para o sistema, renasem 
 	     		   <div class="form-group col-md-8">	     		   
 		     		   	<label for="numRenasem">N° Renasem:</label>
@@ -134,30 +137,30 @@
 	     		<!--Fim reansem-->
 	     		<!--Talvez essas informações sejam irrelevantes para o sistema-->
 
-	     		<div  class="form-row">
-	     			<div class="form-group col-md-8">	
+	     		<div  class="row">
+	     			<div class="form-group col-sm-8">	
 	     				<label for="rua">Rua:</label>
 	     				<input type="text" class="form-control" name="rua" id="rua" placeholder="Ex.: Rua Santo Antonio, n° 312"  maxlength="100" minlength="2" required="">
 	     			</div>
 
-	     			<div class="form-group col-md-2">	
+	     			<div class="form-group col-sm-2">	
 	     				<label for="cep">CEP:</label>
 	     				<input type="text" class="form-control" name="cep" id="cep" maxlength="100" minlength="2" required="">
 	     			</div>
 	     		</div>
 
-	     		<div  class="form-row">
-	     			<div class="form-group col-md-5">
+	     		<div  class="row">
+	     			<div class="form-group col-sm-5">
 	     				<label for="bairro">Bairro:</label>
 	     				<input type="text" class="form-control" name="bairro" id="bairro" required="">
 	     			</div>
 
-	     			<div class="form-group col-md-5">
+	     			<div class="form-group col-sm-5">
 	     				<label for="cidade">Cidade:</label>
 	     				<input type="text" class="form-control" name="cidade" id="cidade" required="">
 	     			</div>
 
-	     			<div class="form-group col-md-2">
+	     			<div class="form-group col-sm-2">
 	     				<label for="estado">Estado:</label>
 	     				<select class="form-control" for="estado">
 	     					<option value="AC">AC</option>
@@ -191,10 +194,11 @@
 	     			</div>
 	     		</div>
 	     		<!--Fim informações-->
-	     	</div>
+	     	
 
-				<div class="form-row">
-					<div class="form-group col-md-12">
+				<div class="row">
+					<div class="form-group col-sm-12">						
+						<button type="submit" class="btn btn-primary">Voltar</button>
 						<button type="submit" class="btn btn-primary">Confirmar</button>
 					</div>
 				</div>
@@ -207,6 +211,94 @@
 </body>
 
 </html>
+
+<!-- Modal -->
+<div id="modalEspecies" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Consultar Espécies</h4>
+      </div>
+      <div class="modal-body">
+        
+      	<!-- Conteúdo -->
+      	<div class="container-fluid">
+      		<!-- Barra de Navegação -->
+      		<div class="row">
+      			<div class="col-sm-12">
+      				<div class="form-group">
+      					<div class="input-group">
+      						<input type="text" class="form-control" placeholder="Pesquisar por espécie...">
+      						<div class="input-group-btn">
+      							<button class="btn btn-default" type="submit">
+      								<i class="glyphicon glyphicon-search"></i>
+      							</button>
+      						</div>
+      					</div>
+      				</div>
+      			</div>
+
+       
+      		<!-- Tabela com a Lista -->
+        <table class="table table-hover table-responsive">
+        	<thead>
+        		<tr>
+        			<th>Código</th>
+        			<th>Especie</th>
+        			<th>Nome Científico</th>
+        			<th>Familia</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<th>001</th>
+        			<td>pupunha</td>
+        			<td>pupunha cientifico</td>
+        			<td>Arecaceae</td>
+        		</tr>
+        	</tbody>
+    	</table>
+
+
+      		<!-- Páginação -->
+      		<div class="row">
+      			<div class="col-sm-6"></div>
+      			
+      			<div class="col-sm-6">
+      				<nav aria-label="Page navigation">
+      					<ul class="pagination">
+      						<li>
+      							<a href="#" aria-label="Previous">
+      								<span aria-hidden="true">&laquo;</span>
+      							</a>
+      						</li>
+      						<li><a href="#">1</a></li>
+      						<li><a href="#">2</a></li>
+      						<li><a href="#">3</a></li>
+      						<li><a href="#">4</a></li>
+      						<li><a href="#">5</a></li>
+      						<li>
+      							<a href="#" aria-label="Next">
+      								<span aria-hidden="true">&raquo;</span>
+      							</a>
+      						</li>
+      					</ul>
+      				</div>
+      			</div>
+
+      	</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
 

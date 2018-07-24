@@ -63,13 +63,13 @@
 									</ul>
 								</li>
 								<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Página 1</a></li>
-										<li><a href="#">Página 2</a></li>
-									</ul>
-								</li>
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+											<li><a href="lista-documento.php">Lista de Documentos</a></li>
+										</ul>
+									</li>
 							</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
@@ -79,7 +79,7 @@
 			</div>
 		</nav>
 	</header>
-		<section>
+		<section class="container-fluid">
 
 
 			<fieldset>
@@ -87,28 +87,66 @@
 
 				<form name="formCardastroTesteGerminacao" id="formCardastroTesteGerminacao" method="get" action="#">
 
-					<label for="data">Data Semeadura:</label> 
-					<input type="date" name="data" id="data" required="">
-					<br><br>
-					<label for="analistaTesteGerminacao">Analista:</label>
-					<input type="text" name="analistaTesteGerminacao" id="analistaTesteGerminacao" required="">  
-					<br><br>
-					<label for="temperatura">Temperatura ():</label>
-					<input type="number" name="temperatura" id="temperatura" required="">
-					<br><br>
-					<label for="subtrato">Substrato:</label> <!--Talvez esse campo seja adicionado-->
-					<input type="text" name="subtrato" id="subtrato" required="">
-					<br><br>
-					<label for="numRepeticao">N° Sementes/Repetição:</label>
-					<input type="number" name="numRepeticao"  id="numRepeticao" required="">
-					<br><br>
+
+
+						<div class="form-group col-md-8">
+							<label for="analistaTesteGerminacao">Analista:</label>
+							<input type="text" class="form-control" name="analistaTesteGerminacao" id="analistaTesteGerminacao" required="">  
+						</div>
+
+						<div class="form-group col-md-4">
+							<label for="dataSemeadura">Data Semeadura:</label> 
+							<input type="date" class="form-control" name="dataSemeadura" id="dataSemeadura" required="">
+						</div>
+
+
+
+						<div class="form-group col-md-6">
+							<label for="temperatura">Temperatura ():</label>
+							<input type="number" class="form-control" name="temperatura" id="temperatura" required="">
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="subtrato">Substrato:</label> <!--Talvez esse campo seja adicionado-->
+							<input type="text" class="form-control" name="subtrato" id="subtrato" required="">
+						</div>
+
+
+
+						<div class="form-group col-md-6">
+							<label for="numRepeticao">N° Sementes/Repetição:</label>
+							<input type="number" class="form-control" name="numRepeticao"  id="numRepeticao" required="">
+						</div>
+
+						<div class="form-group col-md-6">
+							<label for="tratamento">Tratamento:</label>
+							<input type="text" class="form-control" name="tratamento" id="tratamento" required="">
+						</div>
+
+
+
+					<legend>Repetições</legend>
+					<div class="form-group">
+						<label for="diaSemeadura">N° dia da semeadura</label>
+						<input type="number" class="form-control" name="diaSemeadura" id="diaSemeadura" required="">
+					</div>
+
+					<div class="form-group">
+						<label for="dataRepeticao">Data</label>
+						<input type="date"  class="form-control" name="dataRepeticao" id="dataRepeticao" required="">
+					</div>
+
+					<div class="form-group">
+						<label for="repeticao1">R1</label>
+						<input type="text" name="repeticao1" name="repeticao1">
+					</div>
 
 
 				</form>
 
-				<fieldset>
+
 					<div>
-						<button>Salvar</button> <!--Não sei se tem necessidade de ficar esse botao, mas deixei-->
+					 <!--	<button>Salvar</button>Não sei se tem necessidade de ficar esse botao, mas deixei-->
 					</div>
 					<div>
 						<table>
@@ -130,9 +168,9 @@
 					</div>
 
 
-				</fieldset>
 				<br>
-				<button type="submit" value="Submit" >Confirmar</button>
+				<button type="submit" class="btn btn-primary">Voltar</button>
+				<button type="submit" class="btn btn-primary">Confirmar</button>
 
 			</fieldset>
 			</section>

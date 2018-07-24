@@ -63,13 +63,13 @@
 									</ul>
 								</li>
 								<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Página 1</a></li>
-										<li><a href="#">Página 2</a></li>
-									</ul>
-								</li>
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+											<li><a href="lista-documento.php">Lista de Documentos</a></li>
+										</ul>
+									</li>
 							</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
@@ -80,34 +80,34 @@
 		</nav>
 	</header>
 		<section>
-			<fieldset> <!--Coloquei com isso pra ve como fica-->
-			<table>
-				<thead>
-					<tr>
-						<th>Código</th>
-						<th>Espécie</th>
-						<th>Data Chegada</th>
-						<th>Categoria</th>
-						<th>Opções</th>
-						<th>
+			<fieldset> 
+				<legend>Lista de Lotes</legend>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Código</th>
+							<th scope="col">Espécie</th>
+							<th scope="col">Data Chegada</th>
+							<th scope="col">Categoria</th>
+							<th scope="col">Opções</th>
 						</tr>
 					</thead>
 					<tbody>
 						<!--Só um exemplo de conteudo-->
 						<tr>
-							<th>001</th>
-							<th>pupunha</th>
-							<th>13/07/2018</th>
-							<th>fornecida</th>
-							<th><button>Editar</button>|<button>Excluir</button></th>
+							<th scope="row">001</th>
+							<td>pupunha</td>
+							<td>13/07/2018</td>
+							<td>fornecida</td>
+							<td><button class="btn btn-primary">Editar</button>|<button class="btn btn-danger">Excluir</button></td>
 						</tr>
           			<!--a janela do editar é igual do formulario com os dados carregados, e a de excluir so abre um moral perguntando
-          			se realmente deseja excluir (ainda acho essa opçcao meio perigosa, mas deixa ai kkk)-->
-          			<!--Fim do exemplo-->
+          				se realmente deseja excluir (ainda acho essa opçcao meio perigosa, mas deixa ai kkk)-->
+          				<!--Fim do exemplo-->
           			</tbody>
-     		 </table>
-     		 </fieldset>
-		</section>
+          		</table>
+          </fieldset>
+      </section>
 		<footer>
 
 		</footer>

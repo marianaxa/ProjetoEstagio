@@ -67,8 +67,8 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Página 1</a></li>
-                    <li><a href="#">Página 2</a></li>
+                    <li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+                    <li><a href="lista-documento.php">Lista de Documentos</a></li>
                   </ul>
                 </li>
               </ul>
@@ -84,18 +84,21 @@
     <!-- Conteúdo da página -->
     <section>
       <fieldset>
+        <legend>Número de Sementes</legend>
         <form  name="formCardastroNumSementes" id="formCardastroNumSementes" method="get" action="#">
           <!--Essas informações talvez sejam cadastradas uma unica vez -->
-          <div class="form-group col-md-10">
+
+          <div class="form-row">
+          <div class="form-group col-md-8">
             <label for="analistaTesteNumSementes"> Analista: </label>
             <input type="text" class="form-control" name="analistaTesteNumSementes" id="analistaTesteNumSementes" maxlength="30" minlength="4" placeholder="Ex.: João da Silva" required="">
           </div>
           
-          <div class="form-group col-md-10">
-            <label for="dataTesteNumSementes"> Data: </label>
+          <div class="form-group col-md-2">
+            <label for="dataTesteNumSementes"> Data de realização do teste: </label>
             <input type="date" class="form-control" name="dataTesteNumSementes" id="dataTesteNumSementes" maxlength="10" minlength="10" placeholder="Ex.: 01/01/2018" required="">
           </div>
-
+          </div>
           <div class="form-group col-md-10">
             <label for="numSementes"> N° de Sementes: </label>
             <input type="text" class="form-control" name="numSementes" id="numSementes" maxlength="6" minlength="1" placeholder="Ex.: 500" required="">
@@ -117,6 +120,7 @@
           </div>
 
           <div class="form-group col-md-12">
+              <button type="submit" class="btn btn-primary">Voltar</button>
               <input type="submit" value="Confirmar" class="btn btn-primary">
             </div>
         </form>

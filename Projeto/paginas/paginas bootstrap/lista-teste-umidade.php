@@ -63,13 +63,13 @@
 									</ul>
 								</li>
 								<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Página 1</a></li>
-										<li><a href="#">Página 2</a></li>
-									</ul>
-								</li>
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+											<li><a href="lista-documento.php">Lista de Documentos</a></li>
+										</ul>
+									</li>
 							</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
@@ -81,20 +81,18 @@
 	</header>
 		<section>
 			<fieldset>
+				<legend></legend>
 				<div>
-					<button>Cadastrar</button>
-				</div>
-				<div>
-					<table>
+					<table class="table table-hover">
 						<thead>
 							<tr>
-								<th>N° do Cadinho</th>
-								<th>Peso do Cadinho</th>
-								<th>Peso Úmido</th>
-								<th>Peso Seco</th>
-								<th>Úmidade (%)</th>
-								<th>Úmidade Média (%)</th>
-								<th>Opções</th>
+								<th scope="col">N° do Cadinho</th>
+								<th scope="col">Peso do Cadinho</th>
+								<th scope="col">Peso Úmido</th>
+								<th scope="col">Peso Seco</th>
+								<th scope="col">Úmidade (%)</th>
+								<th scope="col">Úmidade Média (%)</th>
+								<th scope="col">Opções</th>
 							</tr>
 						</thead>
 						<tbody>

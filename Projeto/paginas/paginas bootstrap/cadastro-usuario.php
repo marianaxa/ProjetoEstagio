@@ -63,13 +63,13 @@
 									</ul>
 								</li>
 								<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Página 1</a></li>
-										<li><a href="#">Página 2</a></li>
-									</ul>
-								</li>
+									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
+										<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+											<li><a href="lista-documento.php">Lista de Documentos</a></li>
+										</ul>
+									</li>
 							</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
@@ -93,7 +93,8 @@
 					
 						<div  class="form-group col-sm-2">
 							<label for="cargo">Cargo:</label>
-							<select class="form-control" for="cargo">
+							<select class="custom-select" for="cargo" required="">
+								<option >Selecione...</option>
 								<option value="tecnico">Responsavel Técnico</option>
 								<option value="secretaria">Secretaria</option>
 								<option value="analista">Analista</option>
@@ -125,6 +126,7 @@
 					</div>
 
 					<div class="form-group col-md-12">
+						<button type="submit" class="btn btn-primary">Voltar</button>
 						<button type="submit" class="btn btn-primary">Confirmar</button>
 					</div>
 				</form>

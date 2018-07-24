@@ -66,8 +66,8 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Página 1</a></li>
-                    <li><a href="#">Página 2</a></li>
+                    <li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+                    <li><a href="lista-documento.php">Lista de Documentos</a></li>
                   </ul>
                 </li>
               </ul>
@@ -81,14 +81,34 @@
   </header>
 
     <!-- Conteúdo da página -->
-    <section>
+    <section class="container-fluid">
       <fieldset>
-        <button>Cadastrar</button>
-        <table>
+        <legend><h3>Lista de Especies</h3></legend>
+       <!-- <button>Cadastrar</button> -->
+
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+           <div class="form-group">
+             <div class="input-group">
+              <input type="text" class="form-control" placeholder="Pesquisar por espécie...">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+
+       
+
+        <table class="table table-hover table-responsive">
           <thead>
             <tr>
               <th>Código</th>
-              <th>Nome Vulgar</th>
+              <th>Especie</th>
               <th>Nome Científico</th>
               <th>Familia</th>
               <th>Opções</th>
@@ -98,16 +118,20 @@
             <!--Só um exemplo de conteudo-->
             <tr>
               <th>001</th>
-              <th>pupunha</th>
-              <th>pupunha cientifico</th>
-              <th>Arecaceae</th>
-              <th><button>Editar</button>|<button>Excluir</button></th>
+              <td>pupunha</td>
+              <td>pupunha cientifico</td>
+              <td>Arecaceae</td>
+              <td>
+                <button class="btn btn-primary">Editar</button> 
+                <button class="btn btn-danger">Excluir</button>
+              </td>
             </tr>
           </tbody>
         <!--a janela do editar é igual do formulario com os dados carregados, e a de excluir so abre um moral perguntando
           se realmente deseja excluir (ainda acho essa opçcao meio perigosa, mas deixa ai kkk)-->
           <!--Fim do exemplo-->
         </table>
+
       </fieldset>
     </section>
 

@@ -66,8 +66,8 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Página 1</a></li>
-                    <li><a href="#">Página 2</a></li>
+                    <li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
+                    <li><a href="lista-documento.php">Lista de Documentos</a></li>
                   </ul>
                 </li>
               </ul>
@@ -181,6 +181,7 @@
 
           
             <div class="form-group col-md-12">
+            <button type="submit" class="btn btn-primary">Voltar</button>
               <button type="submit" class="btn btn-primary">Confirmar</button>
             </div>
          

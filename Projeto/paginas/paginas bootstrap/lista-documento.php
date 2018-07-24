@@ -83,34 +83,27 @@
     <!-- Conteúdo da página -->
     <section>
       <fieldset>
-        <legend>Cadastro de Especie</legend>
-        <form  name="formCardastroEspecie" id="formCardastroEspecie" method="get" action="#">
-
-
-          <div class="form-row">
-            <div class="form-group col-md-10">
-              <label for="nome_vulgar">Nome Vulgar: </label><!--mudar deposi pra especie ou mudar nos outro pra nome vulgar-->
-              <input type="text" class="form-control" name="nome_vulgar" id="nome_vulgar" maxlength="30" minlength="5" placeholder="Ex.: Pupunha" required="">
-            </div>
-          </div>
-
-          <div class="form-row">          
-            <div class="form-group col-md-10">
-              <label for="nome_cientifico">Nome Científico: </label>
-              <input type="text" class="form-control" name="nome_cientifico" id="nome_cientifico" maxlength="30" minlength="5" placeholder="Ex.: Bactris gasipaes" required="">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-10">
-              <label for="familia">Família: </label>
-              <input type="text"  class="form-control" name="familia" id="familia" maxlength="30" minlength="5" placeholder="Ex.: Arecaceae" required="">
-            </div>
-          </div>
-          <div class="form-group col-md-12">
-                <button type="submit" class="btn btn-primary">Voltar</button>
-                <button type="submit" class="btn btn-primary">Confirmar</button>
-          </div>
-        </form>
+        <legend>Lista de Documento</legend>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Código</th>
+              <th scope="col">Nome Arquivo</th>
+              <th scope="col">Data Cadastro</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Opções</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>documento1.pdf</td>
+              <td>22/07/2018</td>
+              <td>Este é um documento de teste</td>
+              <td><button class="btn btn-primary">Editar</button>|<button class="btn btn-danger">Excluir</button></td>
+            </tr>
+          </tbody>
+        </table>
       </fieldset>
     </section>
 
