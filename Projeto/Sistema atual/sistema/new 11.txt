@@ -1,0 +1,99 @@
+<?php 
+
+require 'crud.php';
+$lote= new Crud();
+$fornecedor = new Crud();
+$endereco = new Crud();
+
+
+//oega um id pra cada, e sempre limpar dentro do if
+//fazer 3 if, uma variavel pra cada, e ai limpar depois de executar
+$acao = $_POST['acao'];
+echo $acao;
+
+
+	$id = $_POST['idlote'];
+	$especie = $_POST['idradio'];
+	$data = $_POST['dataChegada'];
+	$nomeFornecedor = $_POST['fornecedor'];
+	$renasem = $_POST['numRenasem'];
+	$rua = $_POST['rua'];
+	$cep = $_POST['cep'];
+	$bairro = $_POST['bairro'];
+	$cidade = $_POST['cidade'];
+	$estado = $_POST['estado'];
+
+	switch ($acao){
+//if($acao="create"){
+		case "create":
+		if ($lote->numRows() > 0) {
+			header('Location: cadastro-especie.php');
+			alert("Especie não cadastrada");
+		}else{
+			$lote->insert("lotefor",
+				array( "especie" => $especie, "data" => $data, "nomeFornecedor" => $nomeFornecedor, 
+					"renasem" => $renasem, "rua" => $rua, "cep" => $cep, "bairro" => $bairro,
+					"cidade" => $cidade, "estado" => $estado)
+			);
+		//	echo $especie, $data, $nomeFornecedor;
+
+//deixar nome_vulgar unique no banco pra especie
+			/*
+			 $endereco->insert("endereco", array("rua" => $rua, "bairro" => $bairro,  "cidade" => $cidade, 
+			 	"estado" => $estado, "cep" => $cep) );
+
+			 $idEndereco = 0;
+
+			 $endereco->select("SELECT * FROM endereco order by id_endereco desc limit 1");
+			 foreach ($endereco->result() as $endereco ){ 
+			 	$idEndereco =  $endereco['id_endereco'];
+			 }
+
+			 
+
+			 $fornecedor->insert("fornecedor", 
+			 				array("nome_fornecedor" => $nomeFornecedor, "renasem" => $renasem, 
+			 					"enderecoFK" => $idEndereco) );
+			 
+			 $idFornecedor = 0;
+
+			 $fornecedor->select("SELECT * FROM fornecedor order by id_fornecedor desc limit 1");
+			 foreach ($fornecedor->result() as $fornecedor ){ 
+			 	$idFornecedor =  $fornecedor['id_fornecedor'];
+			 }
+
+
+			$lote->insert("lote",
+							array("especie" => $especie, "data_chegada" => $data, "categoria" => "fornecido",
+							 "origemFK" => $idFornecedor) );
+
+
+			 $fornecedor = null;
+			 $endereco = null;
+			 $lote = null;
+			 */
+
+			}
+		}
+
+		$lote = null;
+		header('Location: lista-lote-recebido.php');
+		break;
+
+		case "edit":
+
+		$lote->update("lotefor",
+			array( "especie" => $especie, "data" => $data, "nomeFornecedor" => $nomeFornecedor, 
+				"renasem" => $renasem, "rua" => $rua, "cep" => $cep, "bairro" => $bairro,
+				"cidade" => $cidade, "estado" => $estado),
+			array("id" => $idespecie)
+		);
+		echo "depois do uptado";
+		//header('Location: lista-especie.php');
+
+		break;
+		default:
+		echo "Acao nao encontrada";
+	}
+	
+?>
