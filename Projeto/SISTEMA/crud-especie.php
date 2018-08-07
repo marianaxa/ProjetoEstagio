@@ -26,6 +26,7 @@ switch ($acaoEsp) {
 	$nomeCientifico = $_POST['nome_cientifico'];
 	$nomeVulgar = $_POST['nome_vulgar'];
 	$familia = $_POST['familia'];
+	$numRepeticoes = $_POST['numRepeticoes'];
 
 
 	if ($especie->numRows() > 0) {
@@ -35,7 +36,8 @@ switch ($acaoEsp) {
 		$especie->insert("especie",
 			array("nome_cientifico" => $nomeCientifico,
 				"nome_vulgar"     => $nomeVulgar,
-				"familia"         => $familia
+				"familia"         => $familia,
+				"num_repeticoes"  => $numRepeticoes
 			)
 		);
 		$acaoEsp=null;
@@ -47,6 +49,7 @@ switch ($acaoEsp) {
 	$nomeCientifico = $_POST['nome_cientifico'];
 	$nomeVulgar = $_POST['nome_vulgar'];
 	$familia = $_POST['familia'];
+	$numRepeticoes = $_POST['numRepeticoes'];
 			//echo $idusuario, $nome, $login, $senha;
 
 	if ($especie->numRows() > 0) {
@@ -56,7 +59,8 @@ switch ($acaoEsp) {
 		$especie->update("especie",
 			array("nome_cientifico" => $nomeCientifico,
 				"nome_vulgar"      => $nomeVulgar,
-				"familia" => $familia 
+				"familia" => $familia,
+				"num_repeticoes"  => $numRepeticoes 
 			),
 			array("id_especie" => $idespecie)
 		);

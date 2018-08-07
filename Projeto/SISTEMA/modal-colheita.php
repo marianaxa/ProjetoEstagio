@@ -1,9 +1,9 @@
 <?php 
 
 //require 'crud.php';
-$especie = new Crud();
+$colheita = new Crud();
 
-$especie->select("SELECT * FROM especie");
+$colheita->select("SELECT idcolheita, data,  nome_vulgar, local, gpsX, gpsY FROM colheita, arvore, especie where especieFK=id_especie and arvore_colheitaFK=idarvores");
 ?>
 
 <script>
@@ -14,14 +14,14 @@ $especie->select("SELECT * FROM especie");
 
 </script>
 <!-- Modal -->
-<div id="modal-especies" class="modal fade" role="dialog">
+<div id="modal-colheita" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Consultar Espécies</h4>
+        <h4 class="modal-title">Consultar Colheita</h4>
       </div>
       <div class="modal-body">
         
@@ -33,7 +33,7 @@ $especie->select("SELECT * FROM especie");
       			<div class="col-sm-4">
       				<div class="form-group">
       					<div class="input-group">
-      						<input type="text" class="form-control" name="idradio" placeholder="Pesquisar por espécie...">
+      						<input type="text" class="form-control" name="idradio" placeholder="Pesquisar por codigo...">
       						<div class="input-group-btn">
       							<button class="btn btn-default" type="submit">
       								<i class="glyphicon glyphicon-search"></i>
@@ -51,28 +51,33 @@ $especie->select("SELECT * FROM especie");
               <th>#</th>
         			<th>Código</th>
         			<th>Especie</th>
-        			<th>Nome Científico</th>
-        			<th>Familia</th>
+        			<th>Data</th>
+        			<th>Local</th>
+              <th>GPS: X:</th>
+              <th>Y:</th>
         		</tr>
         	</thead>
         	<tbody>
             <!--Só um exemplo de conteudo-->
             <?php 
-            if ($especie->numRows() > 0) {
-              foreach ($especie->result() as $especie ){ ?>
+            if ($colheita->numRows() > 0) {
+              foreach ($colheita->result() as $colheita ){ ?>
               <tr>
                 <td>                  
-                 <input type="radio" name="optradio" onclick="document.getElementById('idradio').value = '<?php echo $especie['nome_vulgar']; ?>';" id="<?php echo $especie['id_especie'];?>" value="<?php echo $especie['id_especie'];?>">
+                 <input type="checkbox" name="check" id="idcheck">
                </td>
-               <td  id="codigo"><?php echo $especie['id_especie']; ?></td>
-               <td><?php echo $especie['nome_vulgar']; ?></td>
-               <td><?php echo $especie['nome_cientifico']; ?></td>
-               <td><?php echo $especie['familia']; ?></td>
+               <td  id="codigo"><?php echo $colheita['idcolheita']; ?></td>
+               <td><?php echo $colheita['nome_vulgar']; ?></td>
+               <td><?php echo $colheita['data']; ?></td>
+               <td><?php echo $colheita['local']; ?></td>
+               <td><?php echo $colheita['gpsX']; ?></td>
+               <td><?php echo $colheita['gpsY']; ?></td>
+
              </tr>
              <?php 
            }
          } 
-          $especie = null;
+          $colheita = null;
          ?>  
           </tbody>
     	</table>
