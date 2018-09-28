@@ -18,6 +18,17 @@ require_once 'header.php';
 		<legend style="padding-top: 20px">Lista de Amostras</legend>
 		<br>
 		<!--	<button>Cadastrar</button> -->
+		<div class="row">
+			<div class="col-sm-8"></div>
+			<div class="col-sm-4">
+				<div class="form-group">
+					<div class="input-group">
+						<input type="text" class="form-control" id="myInput" onkeyup="BuscaLista()" placeholder="Buscar por...">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
 		<table class="table table-hover table-responsive">
 			<thead>
 				<tr>
@@ -26,7 +37,7 @@ require_once 'header.php';
 					<th scope="col">Condição Armazenamento</th>
 					<th scope="col">Data Implantação</th>
 					<th scope="col">Categoria</th>
-		<!--			<th scope="col">Analises</th> -->
+					<th scope="col">Situação</th> 
 					<th scope="col">Opções</th>
 				</tr>
 			</thead>
@@ -41,7 +52,7 @@ require_once 'header.php';
 							<td><?php echo $amostra['condicao_armazenamento']; ?></td>
 							<td><?php echo date('d-m-Y',strtotime($amostra['data_implantacao'])); ?></td>
 							<td><?php echo $amostra['categoria']; ?></td>
-				<!--			<td><?php echo $amostra['situacao']; ?></td> -->
+							<td><?php echo $amostra['situacao']; ?></td> 
             					<!--Aqui fica mais simbolos dos testes,ou algo q fosse tipo, ao clicar vai pro cadastro do teste em questao,
             						e depois aki sinalizasse, o que ja foi "concluido" -->
             						<td>

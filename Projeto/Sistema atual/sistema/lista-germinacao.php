@@ -48,7 +48,7 @@ foreach ($amostra->result() as $amostra ){
 
 <div class="container">
 	<fieldset> 
-		<legend align="center" style="width:70%;"><h3><a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><i class="fa fa-chevron-left"></i></a> Teste da Germinação</h3></legend>
+		<legend align="center" style="width:70%;"><h3> Teste da Germinação</h3></legend>
 		<br>
 
 		<div class="row">
@@ -100,35 +100,35 @@ foreach ($amostra->result() as $amostra ){
 
 		<div class="row">
 			<div class="col-sm-3 ">
-					<div class="form-group">
-						<label for="plantulasnormais">Plântulas Normais:</label> 
-						<input type="text" class="form-control" name="plantulasnormais" id="plantulasnormais" value="<?php echo $plannormais?>" readonly="" >
-					</div>
+				<div class="form-group">
+					<label for="plantulasnormais">Plântulas Normais:</label> 
+					<input type="text" class="form-control" name="plantulasnormais" id="plantulasnormais" value="<?php echo $plannormais?>" readonly="" >
 				</div>
-				<div class="col-sm-2 ">
-					<div class="form-group">
-						<label for="plantulasanormais">Plântulas Anormais:</label> 
-						<input type="text" class="form-control" name="plantulasanormais" id="plantulasanormais" value="<?php echo $plananormais?>" readonly="" >
-					</div>
+			</div>
+			<div class="col-sm-2 ">
+				<div class="form-group">
+					<label for="plantulasanormais">Plântulas Anormais:</label> 
+					<input type="text" class="form-control" name="plantulasanormais" id="plantulasanormais" value="<?php echo $plananormais?>" readonly="" >
 				</div>
-				<div class="col-sm-2 ">
-					<div class="form-group">
-						<label for="sementesduras">Sementes Duras:</label> 
-						<input type="text" class="form-control" name="sementesduras" id="sementesduras" value="<?php echo $semfirmes?>" readonly="" >
-					</div>
+			</div>
+			<div class="col-sm-2 ">
+				<div class="form-group">
+					<label for="sementesduras">Sementes Duras:</label> 
+					<input type="text" class="form-control" name="sementesduras" id="sementesduras" value="<?php echo $semfirmes?>" readonly="" >
 				</div>
-				<div class="col-sm-2 ">
-					<div class="form-group">
-						<label for="sementesdormentes">Sementes Dormentes:</label> 
-						<input type="text" class="form-control" name="sementesdormentes" id="sementesdormentes" value="<?php echo $semchocas?>" readonly="" >
-					</div>
+			</div>
+			<div class="col-sm-2 ">
+				<div class="form-group">
+					<label for="sementesdormentes">Sementes Dormentes:</label> 
+					<input type="text" class="form-control" name="sementesdormentes" id="sementesdormentes" value="<?php echo $semchocas?>" readonly="" >
 				</div>
-				<div class="col-sm-3 ">
-					<div class="form-group">
-						<label for="sementesmortas">Sementes Mortas:</label> 
-						<input type="text" class="form-control" name="sementesmortas" id="sementesmortas" value="<?php echo $semmortas?>" readonly="" >
-					</div>
+			</div>
+			<div class="col-sm-3 ">
+				<div class="form-group">
+					<label for="sementesmortas">Sementes Mortas:</label> 
+					<input type="text" class="form-control" name="sementesmortas" id="sementesmortas" value="<?php echo $semmortas?>" readonly="" >
 				</div>
+			</div>
 
 		</div>
 
@@ -206,58 +206,65 @@ foreach ($amostra->result() as $amostra ){
 				</table>
 			</div>
 		</div>
+
+		<div class="row" style="padding: 10px">
+			<div class="form-group col-sm-1">
+				<a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><button type="button" class="btn btn-primary" style=" min-width: 150px"><i class="fa fa-reply"></i> Voltar</button></a>
+			</div>
+			<div class="form-group col-sm-11"></div>
+		</div>
 	</fieldset>
 
-  </div>
-  <?php
-  require_once 'footer.php';
+</div>
+<?php
+require_once 'footer.php';
 
-  ?>
+?>
 
-  <script>
-  	$('#tabela').find('button[name=view]').click(function(){
+<script>
+	$('#tabela').find('button[name=view]').click(function(){
 
-  		var categoria = this.value;
-  		var id= this.id;
-  		if(categoria == "fornecido"){
-  			window.location="ver-lote-recebido.php?idlote="+id;
-  		}else{
-  			window.location="cadastro-lote-colhido.php?idcol="+id;
-  		}
-  	});
+		var categoria = this.value;
+		var id= this.id;
+		if(categoria == "fornecido"){
+			window.location="ver-lote-recebido.php?idlote="+id;
+		}else{
+			window.location="cadastro-lote-colhido.php?idcol="+id;
+		}
+	});
 
-  	$('#tabela').find('button[name=edit]').click(function(){
+	$('#tabela').find('button[name=edit]').click(function(){
 
-  		var categoria = this.value;
-  		var id= this.id;
-  		if(categoria == "fornecido"){
-  			window.location="editar-lote-recebido.php?idlote="+id;
-  		}else{
-  			window.location="#"+id;
-  		}
-  	});
-
-
-
-  	function BuscaLista() {
-  		var input, filter, table, tr, td, i;
-  		input = document.getElementById("myInput");
-  		filter = input.value.toUpperCase();
-  		table = document.getElementById("tabela");
-  		tr = table.getElementsByTagName("tr");
-  		for (i = 0; i < tr.length; i++) {
-  			td = tr[i].getElementsByTagName("td")[0];
-  			if (td) {
-  				if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-  					tr[i].style.display = "";
-  				} else {
-  					tr[i].style.display = "none";
-  				}
-  			}       
-  		}
-  	}
+		var categoria = this.value;
+		var id= this.id;
+		if(categoria == "fornecido"){
+			window.location="editar-lote-recebido.php?idlote="+id;
+		}else{
+			window.location="#"+id;
+		}
+	});
 
 
 
+	function BuscaLista() {
+		var input, filter, table, tr, td, i;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("tabela");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[0];
+			if (td) {
+				if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					tr[i].style.display = "";
+				} else {
+					tr[i].style.display = "none";
+				}
+			}       
+		}
+	}
 
-  </script>
+
+
+
+</script>

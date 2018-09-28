@@ -14,12 +14,12 @@ foreach ($totalamostras->result() as $totalamostras ){
 	$qtdamostras = $totalamostras['count(*)'];
 }
 
-$totalanalises->select("SELECT count(*) FROM amostra WHERE situacao like 'iniciada';");
+$totalanalises->select("SELECT count(*) FROM amostra WHERE situacao like 'Iniciada';");
 foreach ($totalanalises->result() as $totalanalises ){
 	$qtdanalises = $totalanalises['count(*)'];
 }
 
-$totalfinalizadas->select("SELECT count(*) FROM amostra WHERE situacao like 'finalizada';");
+$totalfinalizadas->select("SELECT count(*) FROM amostra WHERE situacao like 'Finalizada';");
 foreach ($totalfinalizadas->result() as $totalfinalizadas ){
 	$qtdfinalizadas = $totalfinalizadas['count(*)'];
 }

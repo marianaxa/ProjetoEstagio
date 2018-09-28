@@ -28,7 +28,7 @@ foreach ($amostra->result() as $amostra ){
 
 <div class="container">
 	<fieldset> 
-		<legend align="center" style="width:70%;"><h3><a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><i class="fa fa-chevron-left"></i></a> Teste Teor de Água</h3></legend>
+		<legend align="center" style="width:70%;"><h3>Teste Teor de Água</h3></legend>
 		<br>
 
 		<div class="row">
@@ -64,16 +64,6 @@ foreach ($amostra->result() as $amostra ){
 
 			<div class="col-sm-2"></div>
 		</div>
-
-		<div class="row">
-			<div class="col-sm-2"></div>
-			<div class="form-group col-sm-8">
-				<label for="obsteoragua">Observação</label>
-				<textarea  class="form-control" rows="3" name="obsteoragua" id="obsteoragua" value="<?php echo $obs?>" readonly=""></textarea>
-			</div>
-			<div class="col-sm-2"></div>
-		</div>
-
 
 		<hr>
 
@@ -135,13 +125,31 @@ foreach ($amostra->result() as $amostra ){
 							}
 						} 
 						?>  
-				</tbody>
-			</table>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="col-sm-2"></div>
 		</div>
 
-		<div class="col-sm-2"></div>
-	</div>
-</fieldset>
+		<div class="row">
+			<div class="col-sm-2"></div>
+			<div class="form-group col-sm-8">
+				<label for="obsteoragua">Observação</label>
+				<textarea  class="form-control" rows="3" name="obsteoragua" id="obsteoragua" value="<?php echo $obs?>" readonly=""></textarea>
+			</div>
+			<div class="col-sm-2"></div>
+		</div>
+
+		<div class="row" style="padding: 10px">
+			<div class="form-group col-sm-2"></div>
+			<div class="form-group col-sm-1">
+				<a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><button type="button" class="btn btn-primary" style=" min-width: 150px"><i class="fa fa-reply"></i> Voltar</button></a>
+			</div>
+			<div class="form-group col-sm-6"></div>
+		</div>
+
+	</fieldset>
 
 </div>
 <?php

@@ -30,7 +30,7 @@ foreach ($amostra->result() as $amostra ){
 
 <div class="container">
 	<fieldset> 
-		<legend align="center" style="width:70%;"><h3><a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><i class="fa fa-chevron-left"></i></a> Peso de Mil Sementes</h3></legend>
+		<legend align="center" style="width:70%;"><h3> Peso de Mil Sementes</h3></legend>
 		<br>
 
 		<div class="row">
@@ -118,7 +118,6 @@ foreach ($amostra->result() as $amostra ){
 		</div>
 		<br>
 		<div class="row">
-
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
 				<table class="table table-hover" id="tabela" >
@@ -143,12 +142,20 @@ foreach ($amostra->result() as $amostra ){
 							}
 						} 
 						?>  
-				</tbody>
-			</table>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-sm-2"></div>
 		</div>
-		<div class="col-sm-2"></div>
-	</div>
-</fieldset>
+		
+		<div class="row" style="padding: 10px">
+			<div class="form-group col-sm-2"></div>
+			<div class="form-group col-sm-1">
+				<a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><button type="button" class="btn btn-primary" style=" min-width: 150px"><i class="fa fa-reply"></i> Voltar</button></a>
+			</div>
+			<div class="form-group col-sm-6"></div>
+		</div>
+	</fieldset>
 
 </div>
 <?php

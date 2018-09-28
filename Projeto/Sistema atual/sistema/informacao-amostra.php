@@ -26,7 +26,7 @@ foreach ($amostra->result() as $amostra ){
 
 <div class="container">
 	<br>
-	<h3><a href="lista-amostra.php ?>"><i class="fa fa-chevron-left"></i></a> Dados da Amostra</h3>
+	<h3> Dados da Amostra</h3>
 	<br>
 	<div class="row">
 		<div class="col-sm-2 ">

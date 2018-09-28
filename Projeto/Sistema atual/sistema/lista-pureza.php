@@ -29,7 +29,7 @@ foreach ($amostra->result() as $amostra ){
 
 <div style="padding: 30px">
 	<fieldset  style="padding: 10px">
-		<legend align="center" style="width:70%;"><h3><a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><i class="fa fa-chevron-left"></i></a> Informação Pureza</h3></legend>
+		<legend align="center" style="width:70%;"><h3> Informação Pureza</h3></legend>
 
 		<form name="formCardastroPureza" id="formCardastroPureza" method="POST" action="crud-amostra">
 			<div class="row">
@@ -107,8 +107,15 @@ foreach ($amostra->result() as $amostra ){
 						<input type="text" class="form-control" name="outrascultivares" id="outrascultivares" value="<?php echo $ocultivares?>" readonly="">
 					</div>
 				</div>
-				
 				<div class="col-sm-2"></div>
+			</div>
+
+			<div class="row" style="padding: 10px">
+				<div class="form-group col-sm-2"></div>
+				<div class="form-group col-sm-1">
+					<a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><button type="button" class="btn btn-primary" style=" min-width: 150px"><i class="fa fa-reply"></i> Voltar</button></a>
+				</div>
+				<div class="form-group col-sm-6"></div>
 			</div>
 			
 		</div>

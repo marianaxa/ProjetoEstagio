@@ -7,11 +7,14 @@ session_start();
 
 require '../crud.php';
 $idamostra = $_GET['idamostra'];
-
 $amostra = new Crud();
+$tbpureza = new Crud();
+$tbgerminacao = new Crud();
+$tbpesomilsementes = new Crud();
+
 
 //********************** DADOS AMOSTRA ********************
-$amostra->select("SELECT idlote_sementes, idamostra, data_chegada, amostrador, categoria, nome_vulgar, nome_cientifico, nome_fornecedor, renasem,  condicao_armazenamento, data_implantacao FROM amostra, lote, fornecedor, especie WHERE idamostra=$idamostra and loteFK=idlote_sementes and especieFK=id_especie and origemFK=id_fornecedor;");
+$amostra->select("SELECT idlote_sementes, idamostra, data_chegada, amostrador, categoria, nome_vulgar, nome_cientifico, nome_fornecedor, renasem, rua, cidade, estado, cep, condicao_armazenamento, data_implantacao FROM amostra, lote, fornecedor, endereco, especie WHERE idamostra=$idamostra and loteFK=idlote_sementes and especieFK=id_especie and origemFK=id_fornecedor and id_endereco=enderecoFK;");
 
 foreach ($amostra->result() as $amostra ){
 	$idlote = $amostra['idlote_sementes'];
@@ -25,6 +28,42 @@ foreach ($amostra->result() as $amostra ){
 	$dtimplantacao = $amostra['data_implantacao'];
 	$nome_fornecedor = $amostra['nome_fornecedor'];
 	$num_renasem_fornecedor = $amostra['renasem'];
+	$rua = $amostra['rua'];
+	$cidade = $amostra['cidade'];
+	$estado = $amostra['estado'];
+	$cep = $amostra['cep'];
+}
+
+$endereco = $rua.", ".$cidade." - ".$estado."	CEP - ".$cep;
+$peneira = "-0-";
+//*********************************************************
+//********************** DADOS ANALISES *******************
+$tbpureza->select("SELECT sementes_puras, outras_sementes, material_inerte, outras_cultivares FROM pureza where amostraFK=$idamostra;");
+foreach ($tbpureza->result() as $tbpureza) {
+	$sementes_puras = $tbpureza['sementes_puras'];
+	$outras_sementes = $tbpureza['outras_sementes'];
+	$material_inerte = $tbpureza['material_inerte'];
+	$outras_cultivares = $tbpureza['outras_cultivares'];
+}
+
+$tbgerminacao->select("SELECT temperatura, substrato, tratamento, totalplantulas, plantulasanormais,
+sementesfirmes, sementesmortas, sementeschocas FROM germinacao where amostraFK=$idamostra;");
+foreach ($tbgerminacao->result() as $tbgerminacao) {
+	$temperatura = $tbgerminacao['temperatura'];
+	$substrato = $tbgerminacao['substrato'];
+	$tratamento = $tbgerminacao['tratamento'];
+	$plantulasnormais = $tbgerminacao['totalplantulas'];
+	$plantulasanormais = $tbgerminacao['plantulasanormais'];
+	$sementesfirmes = $tbgerminacao['sementesfirmes'];
+	$sementesmortas = $tbgerminacao['sementesmortas'];
+	$sementeschocas = $tbgerminacao['sementeschocas'];
+}
+$naturamaterialinerte="-0-";
+
+$tbpesomilsementes->select("SELECT kg_mil_sementes, kg_num_medio FROM peso_mil_sementes  where amostraFK=$idamostra;");
+foreach ($tbpesomilsementes->result() as $tbpesomilsementes) {
+	$pesomilsementes = $tbpesomilsementes['kg_mil_sementes'];
+	$numsementeskg = $tbpesomilsementes['kg_num_medio'];
 }
 //*********************************************************
 
@@ -64,7 +103,7 @@ $nome = "a";
 
 						<table width="100%" class="tabela" align="center"  cellspacing=0>
 				<thead> 
-					<tr ><th colspan=12 align="center" ><h2><b>BOLETIM DE ANÁLISE DE SEMENTES N°</b></h2></th>
+					<tr ><th colspan=12 align="center" ><h2><b>BOLETIM DE ANÁLISE DE SEMENTES </b></h2></th>
 					<tr>
 			</table>
 			<!-- tabela da idenficacao do requerente -->
@@ -73,11 +112,11 @@ $nome = "a";
 					<tr style="COLOR: #000080"><th colspan=12 align="center" bgcolor="#f2f2f2" ><b>IDENTIFICAÇÃO DO REQUERENTE</b></tr>
 					</thead>
 					<tr>
-						<td colspan="6"><b>Requerente:</b> <?php echo $nome_requerente; ?></td>
-						<td colspan="6"><b>N° RENASEM:</b> <?php echo $num_renasem; ?></td>
+						<td colspan="6"><b>Requerente:</b> '.$nome_fornecedor.'</td>
+						<td colspan="6"><b>N° RENASEM:</b> '.$num_renasem_fornecedor.'</td>
 					</tr>
 					<tr>
-						<td colspan="12"><b>Endereço:</b> <?php echo $endereco; ?></td>
+						<td colspan="12"><b>Endereço:</b> '.$endereco.'</td>
 					</tr>
 				</table>
 
@@ -90,10 +129,9 @@ $nome = "a";
 							<td colspan=12 align="center" bgcolor="#f2f2f2" ><b>IDENTIFICAÇÃO DA AMOSTRA</b></td>
 						</tr>  
 					</thead>  	
-					<!--Esses dados provavelmente vem de um pre cadastro-->
 					<tr>
-						<td colspan="6"><b>Espécie:</b> <?php echo $nomevulgar; ?> (<i><?php echo $nomecientifico; ?></i>)</td>
-						<td colspan="6"><b>Cultivar:</b> <?php echo $nomevulgar; ?></td>
+						<td colspan="6"><b>Espécie:</b> '.$nomevulgar.' (<i>'.$nomecientifico.'</i>)</td>
+						<td colspan="6"><b>Cultivar:</b> '.$nomevulgar.'</td>
 						
 					</tr>
 
@@ -113,8 +151,8 @@ $nome = "a";
 					</tr>
 
 					<tr>
-						<td colspan="6"><b>Data da Amostragem:</b> <?php echo date("d-m-Y",strtotime($dtimplantacao)); ?></td>
-						<td colspan="6"><b>Peneira:</b> <?php echo "-0-"; ?></td>
+						<td colspan="6"><b>Data da Amostragem:</b> '.$dtimplantacao.'</td>
+						<td colspan="6"><b>Peneira:</b> '.$peneira.'</td>
 					</tr>
 
 				</table>	
@@ -125,7 +163,7 @@ $nome = "a";
 					</tr>
 					<tr>
 						<td colspan="6"><b>N° da Amostra:</b>' .$idamostra.'</td>
-						<td colspan="6"><b>Data do Recebimento:</b> <?php echo date("d-m-Y",strtotime($dtchegada)); ?></td>
+						<td colspan="6"><b>Data do Recebimento:</b> '.$dtchegada.' </td>
 					</tr>
 				</table>
 				
@@ -161,23 +199,23 @@ $nome = "a";
 						<td colspan="2" align="center"> 9</td>
 					</tr>
 					<tr>
-						<td colspan="1" align="center"> <?php echo "XXX" ?></td>
-						<td colspan="1" align="center"> <?php echo "XXX" ?></td>
-						<td colspan="1" align="center"> <?php echo "XXX" ?></td>
-						<td colspan="2" align="center"> '.$campoN.'</td>
-						<td colspan="1" align="center"> <?php echo $porcent_totalplantulasnormais; ?></td>
-						<td colspan="2" align="center"> <?php echo $porcent_totalplantulasanormais; ?></td>
-						<td colspan="1" align="center"> <?php echo $porcent_totalsementesfirmes; ?></td>
-						<td colspan="1" align="center"> <?php echo $porcent_totalsementeschocas; ?></td>
-						<td colspan="2" align="center"> <?php echo $porcent_totalsementesmortas; ?></td>
+						<td colspan="1" align="center"> '.$sementes_puras.'</td>
+						<td colspan="1" align="center"> '.$material_inerte.'</td>
+						<td colspan="1" align="center"> '.$outras_sementes.'</td>
+						<td colspan="2" align="center"> '.$outras_cultivares.'</td>
+						<td colspan="1" align="center"> '.$plantulasnormais.'</td>
+						<td colspan="2" align="center"> '.$plantulasanormais.'</td>
+						<td colspan="1" align="center"> '.$sementesfirmes.'</td>
+						<td colspan="1" align="center"> '.$sementeschocas.'</td>
+						<td colspan="2" align="center"> '.$sementesmortas.'</td>
 					</tr>
 					<tr>
 						<td  colspan="12"><p>Natureza do Material Inerte: <?php echo "-0-" ?></p></td>
 					</tr>
 					<tr >
-						<td  colspan="3" border=none>Substrato: <?php echo $substrato; ?> </td>
-						<td  colspan="3" style="border: 1px  #fff;">Temperatura (°C): <?php echo $temperatura; ?></td>
-						<td  colspan="6" border=none>Tratamento Especial: <?php echo "-N-" ?></td>
+						<td  colspan="3" border=none>Substrato: '.$substrato.' </td>
+						<td  colspan="3" style="border: 1px  #fff;">Temperatura (°C): '.$temperatura.'</td>
+						<td  colspan="6" border=none>Tratamento Especial: '.$tratamento.'</td>
 					</tr>
 					<tr>
 						<td  colspan="5" border:none >Data de Conslusão do Teste de Germinação: </td>
@@ -224,8 +262,8 @@ $nome = "a";
 						<td colspan="1" align="center"> '.$campoN.'</td>
 						<td colspan="1" align="center"> '.$campoN.'</td>
 						<td colspan="2" align="center">  <?php echo $porcent_umidade; ?></td>
-						<td colspan="2" align="center"> <?php echo $pesoamostra; ?></td>
-						<td colspan="2" align="center"> <?php echo $kgnumsementes; ?></td>
+						<td colspan="2" align="center"> '.$pesomilsementes.'</td>
+						<td colspan="2" align="center"> '.$numsementeskg.'</td>
 						<td colspan="1" align="center"> <?php echo "-0-" ?></td>
 						<td colspan="1" align="center">  <?php echo "-0-" ?></td>
 					</tr>

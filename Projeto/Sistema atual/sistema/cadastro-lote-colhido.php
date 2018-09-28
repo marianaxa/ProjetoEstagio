@@ -134,7 +134,7 @@ require_once 'header.php';
 			</div>
 			<div class="row">
 				<div class="form-group col-sm-7">						
-					<a href="lista-lote.php"><button type="submit" class="btn btn-primary"><span class="fa fa-mail-reply"></span> Voltar</button></a>
+					<a href="lista-lote.php"><button type="submit" class="btn btn-primary"><span class="fa fa-reply"></span> Voltar</button></a>
 				</div>
 			</div>
 		</div>

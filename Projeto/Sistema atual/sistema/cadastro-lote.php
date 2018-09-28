@@ -8,10 +8,9 @@ require 'crud.php';
 
 
 <div style="padding: 30px">
+	<fieldset  style="padding: 10px">
+		<legend align="center" style="width:70%;">Cadastro Lote de Semente Recebido</legend>
 		<form name="formCardastroLoteSemente" id="formCardastroLoteSemente" method="POST" action="crud-lote-recebido.php">
-
-		<fieldset  style="padding: 10px">
-			<legend align="center" style="width:70%;">Cadastro Lote de Semente Recebido</legend>
 			<div class="row">
 				<div class="form-group col-sm-3"></div>
 				<div class="col-sm-5">
@@ -118,7 +117,7 @@ require 'crud.php';
 		<div class="row" style="padding: 0px">
 			<div class="form-group col-sm-4"></div>
 			<div class="form-group col-sm-1">
-				<a href="principal.php"><button type="button" class="btn btn-primary" style=" min-width: 200px"><span class="fa fa-mail-reply"></span> Voltar</button></a>
+				<a href="principal.php"><button type="button" class="btn btn-primary" style=" min-width: 200px"><i class="fa fa-reply"></i> Voltar</button></a>
 			</div>
 			<div class="form-group col-sm-1"></div>
 			<div class="form-group col-sm-1">

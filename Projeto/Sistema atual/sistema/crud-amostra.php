@@ -29,7 +29,7 @@ switch ($acaoCol) {
 			"data_implantacao"  => $dataImplantacao,	
 			"loteFK" => $loteFK,
 			"amostrador" => $amostrador,
-			"situacao" => 'iniciada'
+			"situacao" => 'Iniciada'
 		)
 	);
 	header('Location: lista-amostra.php');
