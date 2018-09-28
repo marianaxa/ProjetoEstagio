@@ -142,7 +142,7 @@ $nome = "a";
 
 					<tr>
 						<td colspan="6"><b>Safra:</b> <?php echo "Ano" ?> </td>
-						<td colspan="6"><b>Procedencia:</b> <?php echo $nome_fornecedor; ?></td>
+						<td colspan="6"><b>Procedência:</b> <?php echo $nome_fornecedor; ?></td>
 					</tr>
 
 					<tr>
@@ -218,7 +218,7 @@ $nome = "a";
 						<td  colspan="6" border=none>Tratamento Especial: '.$tratamento.'</td>
 					</tr>
 					<tr>
-						<td  colspan="5" border:none >Data de Conslusão do Teste de Germinação: </td>
+						<td  colspan="5" border:none >Data de Conclusão do Teste de Germinação: </td>
 						<td colspan="7">Duração do Teste de Germinação: </td>
 					</tr>
 					<!-- Outras determinacoes -->
@@ -278,11 +278,11 @@ $nome = "a";
 					<td width="50%" style="border: 1px solid #000;">
 						<b>NOTAS:</b>
 						<p>
-							1-A identificação da amostra é de exclusiva responsabilidade do temetente.
+							1 - A identificação da amostra é de exclusiva responsabilidade do remetente.
 							<br>
-							2-A presente análise tem seu valor restrito à amostra entregue no laboratório.
+							2 - A presente análise tem seu valor restrito à amostra entregue no laboratório.
 							<br>
-							3- Métodos de análise segundo a RAS em vigor ou outro informado no campo observações.
+							3 - Métodos de análise segundo a RAS em vigor ou outro informado no campo observações.
 						</p>
 					</td>
 					<!--&nbsp; PRA DA UM TAB -->

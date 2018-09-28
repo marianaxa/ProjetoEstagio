@@ -144,8 +144,17 @@ endif;
 								</div>
 							</div>
 						</form>
-						<button type="submit" class="btn btn-primary">Voltar</button>
-						<button type="submit" class="btn btn-primary">Confirmar</button>
+						<div class="row" style="padding-top: 10px">
+							<div class="form-group col-sm-4"></div>
+							<div class="form-group col-sm-1">
+								<a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><button type="button" class="btn btn-primary" style=" min-width: 200px"><span class="fa fa-mail-reply"></span> Voltar</button></a>
+							</div>
+							<div class="form-group col-sm-1"></div>
+							<div class="form-group col-sm-1">
+								<button type="submit" name="acao" value="createTesteGerm" class="btn btn-primary" style=" min-width: 200px">Confirmar</button> 
+							</div>
+							<div class="form-group col-sm-4"></div>
+						</div>
 
 					</div>
 					<div id="menu1" class="tab-pane fade">

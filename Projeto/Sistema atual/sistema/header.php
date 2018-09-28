@@ -120,7 +120,7 @@ endif;
                 </li>
               </ul>-->
               <ul class="nav navbar-nav navbar-left">
-                <li><a href="principal.php"><i class="fa fa-home"></i> LasfAC</a></li>
+                <li><a href="principal.php"><i class="fa fa-home"></i> Início</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->

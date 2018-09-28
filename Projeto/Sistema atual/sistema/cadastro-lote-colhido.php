@@ -149,18 +149,15 @@ require_once 'header.php';
 						<label for="nome">Código:</label>
 						<input type="text" class="form-control" name="idcolh" id="idcolh" value="<?php echo $idcol?>" readonly></input>
 					</div>
-					<div class="col-sm-5"> 
+					<div class="col-sm-3"> 
 						<div class="form-group">
 							<label for="especie">Especie:</label>
 							<div class="input-group">
 								<input type="text" class="form-control" id="idradio" name="idradio" maxlength="30" minlength="1" placeholder="Pesquisar..." value="<?php echo $especie?>" readonly="">
-								<div class="input-group-btn">
-									<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-especies">Pesquisar</button>
-								</div>
 							</div>
 						</div>
 					</div>
-					<div class="form-group col-sm-6">
+					<div class="form-group col-sm-4">
 						<label for="dataColheita">Data:</label>
 						<input type="date" class="form-control" name="dataColheita" id="dataColheita"  value="<?php echo $dataColheita?>" readonly="">
 					</div>

@@ -209,7 +209,7 @@ foreach ($amostra->result() as $amostra ){
 
 		<div class="row" style="padding: 10px">
 			<div class="form-group col-sm-1">
-				<a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><button type="button" class="btn btn-primary" style=" min-width: 150px"><i class="fa fa-reply"></i> Voltar</button></a>
+				<a href="informacao-amostra.php?idamostra=<?php echo $idamostra; ?>"><button type="button" class="btn btn-primary" style=" min-width: 200px"><i class="fa fa-reply"></i> Voltar</button></a>
 			</div>
 			<div class="form-group col-sm-11"></div>
 		</div>
