@@ -1,108 +1,14 @@
 <?php 
-//conexao
-require_once 'db_connect.php';
-
-//sessao
-session_start();
-
-if(!isset($_SESSION['logado'])):
-  header('Location: login.php');
-endif;
 
 require 'crud.php';
 $colheita = new Crud();
 
-$colheita->select("SELECT * FROM colheita");
+$colheita->select("SELECT idcolheita, data, local, colhedores, nome_vulgar, observacoes_colheita FROM colheita, especie where especieFK=id_especie;");
+
+require_once 'header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
 
-<head>
-  <meta charset="utf-8">
-  <title>Sistema Lasfac</title>
-
-  <!-- BOOTSTRAP -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <!--EXCLUSAO-->
-  <script src="scripts/scriptesp.js"></script>  
-
-  <!-- FONTE AWESOME -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-</head>
-
-<body>
-
-  <!-- CABEÇALHO -->
-<header>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span> 
-          </button>
-          <a class="navbar-brand" href="#">SCAS LASFAC</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li><a href="principal.php">Inicio</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="lista-lote.php">Lotes
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="cadastro-lote.php">Cadastrar Lote Recebido</a></li>
-                  <li><a href="cadastro-colheita.php">Cadastrar Lote Colhido</a></li>
-                  <li><a href="lista-lote.php">Lista de Lotes</a></li>
-                  <li><a href="cadastro-especie.php">Cadastrar Especie</a></li>
-                  <li><a href="lista-especie.php">Lista de Especies</a></li>
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="lista-amotra.php">Amostras
-                  <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="cadastro-amostra.php">Cadastrar Amostra</a></li>
-                    <li><a href="lista-amostra.php">Lista de Amostras</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Relatórios
-                  <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Página 1</a></li>
-                    <li><a href="#">Página 2</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-                  <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
-                    <li><a href="lista-documento.php">Lista de Documentos</a></li>
-                  </ul>
-                </li>
-              </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
-            <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-    <!-- Conteúdo da página -->
-    <section class="container-fluid">
       <fieldset>
         <legend><h3>Lista de Colheitas</h3></legend>
        <!-- <button>Cadastrar</button> -->
@@ -134,6 +40,7 @@ $colheita->select("SELECT * FROM colheita");
                 <tr>
                   <th scope="col">Código</th>
                   <th scope="col">Data</th>
+                  <th scope="col">Espécie</th>
                   <th scope="col">Local</th>
                   <th scope="col">Colhedores</th>
                   <th scope="col">Observações</th>
@@ -147,15 +54,19 @@ $colheita->select("SELECT * FROM colheita");
                   foreach ($colheita->result() as $colheita ){ ?>
                   <tr>
                     <th><?php echo $colheita['idcolheita']; ?></th>
-                    <td><?php echo $colheita['dataColheita']; ?></td>
-                    <td><?php echo $colheita['localColheita']; ?></td>
+                    <td><?php echo date('d-m-Y',strtotime($colheita['data'])); ?></td>
+                    <td><?php echo $colheita['nome_vulgar']; ?></td>
+                    <td><?php echo $colheita['local']; ?></td>
                     <td><?php echo $colheita['colhedores']; ?></td>
-                    <td><?php echo $colheita['obsColheita']; ?></td>
+                    <td><?php echo $colheita['observacoes_colheita']; ?></td>
                     <td>
+                      <a href="cadastro-lote-colhido.php?idcol=<?php echo $colheita['idcolheita']; ?>">
+                        <button class="btn btn-info">Ver</button>
+                      </a> 
                       <a href="editar-colheita.php?idcol=<?php echo $colheita['idcolheita']; ?>">
                         <button class="btn btn-primary">Editar</button>
                       </a> 
-                      <button id="<?php echo $colheita['idcolheita'];?>" nome-vulgar="<?php echo $colheita['dataColheita']; ?>" class="btn btn-danger btn-modal-esp" data-toggle="modal" data-target="#modalExclusao">Excluir</button>
+                      <button id="<?php echo $colheita['idcolheita'];?>" nome-vulgar="<?php echo $colheita['data']; ?>" class="btn btn-danger btn-modal-esp" data-toggle="modal" data-target="#modalExclusao">Excluir</button>
                     </td>
                   </tr>
                   <?php }
@@ -172,15 +83,10 @@ $colheita->select("SELECT * FROM colheita");
 
 
       </fieldset>
-    </section>
+<?php
+require_once 'footer.php';
 
-    <!-- Rodapé -->
-    <footer>
-      
-    </footer>
-  </div>
-</body>
-</html>
+?>
 
 <script>
 function BuscaLista() {

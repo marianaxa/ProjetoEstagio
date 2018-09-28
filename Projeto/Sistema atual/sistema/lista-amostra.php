@@ -1,148 +1,65 @@
-<?php 
-//conexao
-require_once 'db_connect.php';
+<?php
 
-//sessao
-session_start();
+require 'crud.php';
+$amostra = new Crud();
 
-if(!isset($_SESSION['logado'])):
-	header('Location: login.php');
-endif;
+$amostra->select("SELECT idamostra, nome_vulgar, condicao_armazenamento, data_implantacao, categoria, situacao FROM amostra, lote, especie WHERE loteFK=idlote_sementes AND especieFK=id_especie;");
+
+//sleelcionar os dados como na lista, 
+//adicionar o id da especie pra ser mais rapido (talvez)
+//idela puxar td da tabela do banco so com1d do lote
+require_once 'header.php';
+
 
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-	<meta charset="utf-8">
-	<title>Sistema Lasfac</title>
-
-	<!-- BOOTSTRAP -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-	<!-- FONTE AWESOME -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-</head>
-
-<body>
-
-	<!-- CABEÇALHO -->
-<header>
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span> 
-					</button>
-					<a class="navbar-brand" href="#">SCAS LASFAC</a>
-				</div>
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav">
-						<li><a href="principal.php">Início</a></li>
-						<li class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" href="lista-lote.php">Lotes
-								<span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="cadastro-lote.php">Cadastrar Lote Recebido</a></li>
-									<li><a href="cadastro-colheita.php">Cadastrar Lote Colhido</a></li>
-									<li><a href="cadastro-especie.php">Cadastrar Espécie</a></li>
-									<li><a href="lista-lote.php">Lista de Lotes</a></li>
-									<li><a href="lista-especie.php">Lista de Espécies</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="lista-amostra.php">Amostras
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="cadastro-amostra.php">Cadastrar Amostra</a></li>
-										<li><a href="lista-amostra.php">Lista de Amostras</a></li>
-									</ul>
-								</li>
-								<!-- 
-								<li class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" href="#">Relatórios
-									<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Página 1</a></li>
-										<li><a href="#">Página 2</a></li>
-									</ul>
-								</li>
-								-->
-								<li class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" href="#">Documentos
-										<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li><a href="cadastro-documento.php">Adicionar Documentos</a></li>
-											<li><a href="lista-documento.php">Lista de Documentos</a></li>
-										</ul>
-									</li>
-							</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="lista-usuario.php"><span class="glyphicon glyphicon-user"></span> Usuários</a></li><!--deixa aki entao pra ir pra uma tela q puxa a lista dos usuarios, mas esse campo so aparece se for no caso um usuario do tipo administrador-->
-						<li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-
-		<!-- Conteúdo da página -->
-		<section class="container-fluid">
-			<fieldset>
-				<legend>Lista de Amostras</legend>
-        		
-				<!--	<button>Cadastrar</button> -->
-					<table class="table table-bordered">
-						<thead>
-							<tr>
-								<th scope="col">Código</th>
-								<th scope="col">Espécie</th>
-								<th scope="col">Condição Armazenamento</th>
-								<th scope="col">Data Implantação</th>
-								<th scope="col">Categoria</th>
-								<th scope="col">Analises</th>
-								<th scope="col">Opções</th>
-							</tr>
-						</thead>
-						<tbody>
-							<!--Só um exemplo de conteudo-->
-							<tr>
-								<td>001</td>
-								<td>pupunha</td>
-								<td>Estufa</td>
-								<td>13/07/2018</td>
-								<td>Fornecida</td>
-								<td>Iniciada</td>
+<div class="container">
+	<fieldset>
+		<legend style="padding-top: 20px">Lista de Amostras</legend>
+		<br>
+		<!--	<button>Cadastrar</button> -->
+		<table class="table table-hover table-responsive">
+			<thead>
+				<tr>
+					<th scope="col">Código</th>
+					<th scope="col">Espécie</th>
+					<th scope="col">Condição Armazenamento</th>
+					<th scope="col">Data Implantação</th>
+					<th scope="col">Categoria</th>
+		<!--			<th scope="col">Analises</th> -->
+					<th scope="col">Opções</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- -->
+				<?php 
+				if ($amostra->numRows() > 0) {
+					foreach ($amostra->result() as $amostra ){ ?>
+						<tr>
+							<td><?php echo $amostra['idamostra']; ?></td>
+							<td><?php echo $amostra['nome_vulgar']; ?></td>
+							<td><?php echo $amostra['condicao_armazenamento']; ?></td>
+							<td><?php echo date('d-m-Y',strtotime($amostra['data_implantacao'])); ?></td>
+							<td><?php echo $amostra['categoria']; ?></td>
+				<!--			<td><?php echo $amostra['situacao']; ?></td> -->
             					<!--Aqui fica mais simbolos dos testes,ou algo q fosse tipo, ao clicar vai pro cadastro do teste em questao,
-            							e depois aki sinalizasse, o que ja foi "concluido" -->
-            					<td>
-            						<a href="informacao-amostra.php"><button class="btn btn-info">Ver Análises</button></a>
-            						<button class="btn btn-primary">Editar</button>
-            						<button class="btn btn-danger">Excluir</button>
-	           					</td>
-           					 </tr>
-          						<!--a janela do editar é igual do formulario com os dados carregados, e a de excluir so abre um moral perguntando se realmente deseja excluir (ainda acho essa opçcao meio perigosa, mas deixa ai kkk)-->
-          				<!--Fim do exemplo-->
-          				</tbody>
-      				</table>
-  				</div>
-			</fieldset>
-		</section>
+            						e depois aki sinalizasse, o que ja foi "concluido" -->
+            						<td>
+            							<a href="informacao-amostra.php?idamostra=<?php echo $amostra['idamostra']; ?>"><button class="btn btn-info">Ver Análises</button></a>
+            							<button class="btn btn-primary">Editar</button>
+            							<button class="btn btn-danger">Excluir</button>
+            						</td>
+            					</tr>
+            				<?php }
+            			} 
 
-		<!-- Rodapé -->
-		<footer>
+            			?>
 
-		</footer>
-	</div>
-</body>
-</html>
+            		</tbody>
+            	</table>
+            </div>
+        </fieldset>
+    </div>
+    <?php
+    require_once 'footer.php';
+    ?>

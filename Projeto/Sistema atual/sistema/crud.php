@@ -10,7 +10,7 @@
 
 			try {
 				
-				$this->pdo = new PDO("mysql:host=localhost;dbname=lasfac", "root", "");
+				$this->pdo = new PDO("mysql:host=localhost;dbname=lasfac2", "root", "root");
 			} catch (PDOException $e) {
 				echo "Falha ao se conectar com o banco! <br><br>";
 

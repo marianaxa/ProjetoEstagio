@@ -25,6 +25,8 @@
 
 	// echo "Quantidade de usuários:" . $teste->numRows();
 
+	
+
 	if ($teste->numRows() >0) {
 	 	foreach ($teste->result() as $tabela ){ ?>
 

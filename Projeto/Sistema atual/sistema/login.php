@@ -17,7 +17,7 @@ if(isset($_POST['btn-entrar'])):
 		$resultado = mysqli_query($connect, $sql);
 
 		if(mysqli_num_rows($resultado) > 0):
-			$senha = md5($senha);
+			//$senha = md5($senha);
 			$sql = "SELECT * FROM usuario WHERE email = '$login' AND senha = '$senha'";
 			$resultado = mysqli_query($connect, $sql);
 				if(mysqli_num_rows($resultado) == 1):
